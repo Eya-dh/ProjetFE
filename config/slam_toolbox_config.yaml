@@ -1,0 +1,28 @@
+slam_toolbox:
+  ros__parameters:
+    use_sim_time: true  # Utilisation du temps simulé
+    odom_frame: "odom"
+    map_frame: "map"
+    base_frame: "base_link"
+    scan_topic: "/scan"
+    mode: "mapping"  # Peut être "localization" si tu veux juste utiliser une carte existante
+
+    # Paramètres de SLAM Toolbox
+    resolution: 0.05  # Résolution de la carte (en mètres par pixel)
+    min_laser_range: 0.1  # Mets au moins 0.1m
+    max_laser_range: 10.0  # Portée maximale du LiDAR (ajuste selon ton capteur)
+    minimum_time_interval: 0.5  # Temps minimal entre deux scans
+    transform_publish_period: 0.05  # Période de publication des transformations
+    map_update_interval: 2.0  # Fréquence de mise à jour de la carte
+    map_start_pose: [1.0, 1.0, 0.0]  # x, y, yaw (en mètres/radians)
+    startup_delay: 2.0  # Délai en secondes avant de commencer
+    
+
+
+    # Optimisation et correction des erreurs
+    loop_closure: true  # Activer la détection des boucles
+    max_laser_fov: 3.14  # Champ de vision max du LiDAR (en radians)
+    minimum_travel_distance: 0.1  # Distance minimale avant mise à jour de la carte
+    minimum_travel_heading: 0.1  # Rotation minimale avant mise à jour
+    tf_buffer_duration: 10.0
+    ceres_num_threads: 4  # Utilisez une valeur ≤ 12
