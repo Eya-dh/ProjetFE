@@ -40,7 +40,7 @@ def generate_launch_description():
     world_file_path = os.path.join(
         get_package_share_directory('robot_hospital_logistics'),
         'worlds',
-        'hospital3.world'
+        'newhospital.world'
     )
 
     # Vérifier si le fichier de monde existe
@@ -92,13 +92,6 @@ def generate_launch_description():
     output='screen'
     )
  
-    # Démarrer les contrôleurs
-    controller_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['joint_state_broadcaster', 'robot_controller'],
-        output='screen'
-    )
 
     # Lancer RViz
     rviz_node = Node(
@@ -116,8 +109,7 @@ def generate_launch_description():
             os.path.join(get_package_share_directory('nav2_bringup'), 'launch', 'bringup_launch.py')
         ]),
         launch_arguments={
-            'map': '/home/eya/ros2_ws/src/robot_hospital_logistics/hospital_map/hospital_map.yaml',
-            'params_file': '/home/eya/ros2_ws/src/robot_hospital_logistics/config/nav2_params.yaml',
+            'map': '/home/eya/ros2_ws/src/robot_hospital_logistics/hospital_map/maps.yaml',
             'use_sim_time': LaunchConfiguration('use_sim_time')
         }.items()
     )
@@ -126,7 +118,7 @@ def generate_launch_description():
     executable='map_server',
     name='map_server',
     output='screen',
-    parameters=[{'yaml_filename': '/home/eya/ros2_ws/src/robot_hospital_logistics/hospital_map/hospital_map.yaml'}]
+    parameters=[{'yaml_filename': '/home/eya/ros2_ws/src/robot_hospital_logistics/hospital_map/maps.yaml'}]
     )
 
     map_to_odom = Node(
@@ -143,8 +135,6 @@ def generate_launch_description():
         gazebo_spawn,
         robot_state_publisher,
         joint_state_publisher,
-        rviz_node,
-        controller_spawner,
         nav2_bringup,
         map_server_node,
         controller_manager,map_to_odom
