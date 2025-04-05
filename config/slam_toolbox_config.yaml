@@ -5,7 +5,7 @@ slam_toolbox:
     map_frame: "map"
     base_frame: "base_link"
     scan_topic: "/scan"
-    mode: "mapping"  # Peut être "localization" si tu veux juste utiliser une carte existante
+    mode: "mapping"  # Peut être localization "" si tu veux juste utiliser une carte existante
 
     # Paramètres de SLAM Toolbox
     resolution: 0.05  # Résolution de la carte (en mètres par pixel)
@@ -14,7 +14,7 @@ slam_toolbox:
     minimum_time_interval: 0.5  # Temps minimal entre deux scans
     transform_publish_period: 0.05  # Période de publication des transformations
     map_update_interval: 2.0  # Fréquence de mise à jour de la carte
-    map_start_pose: [1.0, 1.0, 0.0]  # x, y, yaw (en mètres/radians)
+    map_start_pose: [0.0, 0.0, 0.0]  # x, y, yaw (en mètres/radians)
     startup_delay: 2.0  # Délai en secondes avant de commencer
     
 

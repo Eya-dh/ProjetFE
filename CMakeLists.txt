@@ -34,9 +34,6 @@ install(DIRECTORY
   urdf
   rviz_config
   hospital_map
-  models
-  photos
-
 
   DESTINATION share/${PROJECT_NAME}/
 )
