@@ -1288,13 +1288,6 @@
     </model>
 
 
-    <!-- Define the user perspective of the world -->
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose frame=''>7.168 3.1892 24.658 0 1.41779 -3.13</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-    </gui>
+
   </world>
 </sdf>
