@@ -1,3 +1,4 @@
+Ce code installe les modèles et photos nécessaires à la simulation de l’environnement hospitalier dans Gazebo.
 cd ~/ros2_ws/src
 
 git clone https://github.com/TommasoVandermeer/Hospitalbot-Path-Planning.git
